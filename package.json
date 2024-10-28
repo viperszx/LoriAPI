@@ -1,0 +1,20 @@
+{
+  "name": "loriapi",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "tsx src/tests/index.ts",
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "PedroDevTS",
+  "license": "ISC",
+  "description": "A simple library for fetching information from Loritta, a popular discord bot made by the brazilian developer Leonardo Malaman.",
+  "dependencies": {
+    "axios": "^1.7.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.8.1",
+    "typescript": "^5.6.3"
+  }
+}
