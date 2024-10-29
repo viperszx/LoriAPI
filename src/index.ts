@@ -1,3 +1,3 @@
-import { LoriApi, ApiOptions, UserData, UserFields, UserHeaders } from "./util/LoriApp";
-
-export { UserData, UserFields, UserHeaders, ApiOptions, LoriApi };
+import { LoriApi } from "./util/LoriApp";
+// export to Library
+export { LoriApi}

@@ -7,7 +7,9 @@
       "strict": true,
       "esModuleInterop": true,
       "sourceMap": true,
-      "skipLibCheck": true
+      "declarationMap": false,
+      "skipLibCheck": true,
+      "declaration": true,
     },
     "include": ["src"],
     "exclude": ["node_modules"]
