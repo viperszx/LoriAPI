@@ -1,6 +1,8 @@
-# LoriApi
+# LoriApi ![Lori_Point](https://cdn.discordapp.com/emojis/1167125529024012389.png?size=32)
 
-A powerful, straightforward library to interact with the Loritta API, a well-known Discord bot developed by Brazilian developer MrPowerGamerBR. With `LoriApi`, you can easily retrieve detailed user data and transaction history directly from the Loritta API.
+
+
+A powerful, straightforward library to interact with the Loritta API, a well-known Discord bot developed by Brazilian developer MrPowerGamerBR ![power_lori](https://cdn.discordapp.com/emojis/1002237735265894400.png?size=16). With `LoriApi`, you can easily retrieve detailed user data and transaction history directly from the Loritta API.
 
 ## Installation
 
@@ -33,14 +35,17 @@ const api = new LoriApi({ loriKey: "lorixp_your_key_here" });
 Use the `getUserData` method to retrieve comprehensive information about a user, including optional metadata in the headers. This method returns a combined object with both the data and the relevant header fields.
 
 ```javascript
-api.getUserData("123170274651668480").then((userData) => {
-    console.log(userData.id);            // User ID
-    console.log(userData.sonhos);        // User "Dreams" count
-    console.log(userData.gender);        // User's gender
+api
+  .getUserData("123170274651668480")
+  .then((userData) => {
+    console.log(userData.id); // User ID
+    console.log(userData.sonhos); // User "Dreams" count
+    console.log(userData.gender); // User's gender
     console.log(userData.LorittaCluster); // Access to response headers
-}).catch((error) => {
+  })
+  .catch((error) => {
     console.error("Error fetching user data:", error.message);
-});
+  });
 ```
 
 ### Example Response from `getUserData`
@@ -49,15 +54,15 @@ A typical response from `getUserData` provides fields for both user data and hea
 
 ```json
 {
-    "id": "123170274651668480",
-    "xp": 6283483,
-    "sonhos": 19613336,
-    "aboutMe": "\"She said 'rawr x3', so it's true love at first sight\"",
-    "gender": "MALE",
-    "emojiFightEmoji": "<:lori_sip:1167125644296069160>",
-    "LorittaCluster": "Loritta Cluster 1 (Catalyst)",
-    "LorittaTokenCreator": "123170274651668480",
-    "LorittaTokenUser": "123170274651668480"
+  "id": "123170274651668480",
+  "xp": 6283483,
+  "sonhos": 19613336,
+  "aboutMe": "\"She said 'rawr x3', so it's true love at first sight\"",
+  "gender": "MALE",
+  "emojiFightEmoji": "<:lori_sip:1167125644296069160>",
+  "LorittaCluster": "Loritta Cluster 1 (Catalyst)",
+  "LorittaTokenCreator": "123170274651668480",
+  "LorittaTokenUser": "123170274651668480"
 }
 ```
 
@@ -68,15 +73,21 @@ Retrieve a user's transaction history with the `getUserDataTransactions` method.
 ### Example Usage of `getUserDataTransactions`
 
 ```javascript
-api.getUserDataTransactions("123170274651668480", ["PAYMENT", "DAILY_REWARD"], "2024-01-01T00:00:00.000Z", "2024-12-31T23:59:59.999Z")
-    .then((transactionData) => {
-        console.log(transactionData.transactions); // Array of transactions
-        console.log(transactionData.paging);       // Paging information
-        console.log(transactionData.headers);      // Header metadata
-    })
-    .catch((error) => {
-        console.error("Error fetching user transactions:", error.message);
-    });
+api
+  .getUserDataTransactions(
+    "123170274651668480",
+    ["PAYMENT", "DAILY_REWARD"],
+    "2024-01-01T00:00:00.000Z",
+    "2024-12-31T23:59:59.999Z"
+  )
+  .then((transactionData) => {
+    console.log(transactionData.transactions); // Array of transactions
+    console.log(transactionData.paging); // Paging information
+    console.log(transactionData.headers); // Header metadata
+  })
+  .catch((error) => {
+    console.error("Error fetching user transactions:", error.message);
+  });
 ```
 
 ### Parameters for `getUserDataTransactions`
@@ -119,7 +130,7 @@ Initialization options for `LoriApi`:
 
 ```typescript
 type ApiOptions = {
-    loriKey: string;
+  loriKey: string;
 };
 ```
 
@@ -129,12 +140,12 @@ Structure of the data returned by `getUserData`:
 
 ```typescript
 interface UserData {
-    id: string;
-    xp: number;
-    sonhos: number;
-    aboutMe: string;
-    gender: string;
-    emojiFightEmoji: string;
+  id: string;
+  xp: number;
+  sonhos: number;
+  aboutMe: string;
+  gender: string;
+  emojiFightEmoji: string;
 }
 ```
 
@@ -144,9 +155,9 @@ Headers returned in the `getUserData` response:
 
 ```typescript
 interface UserHeaders {
-    LorittaCluster?: string;
-    LorittaTokenCreator?: string;
-    LorittaTokenUser?: string;
+  LorittaCluster?: string;
+  LorittaTokenCreator?: string;
+  LorittaTokenUser?: string;
 }
 ```
 
@@ -156,9 +167,9 @@ Structure for the data returned by `getUserDataTransactions`:
 
 ```typescript
 interface TransactionData {
-    transactions: Array<any>;
-    headers: UserHeaders;
-    paging: any;
+  transactions: Array<any>;
+  headers: UserHeaders;
+  paging: any;
 }
 ```
 
